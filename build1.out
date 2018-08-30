@@ -1,0 +1,10 @@
+=> [✓] Dist cleaned (0.1s)
+=> [✓] Routes Built (12.4s)
+=> [✓] Templates Built (0s)
+=> [✓] Public directory copied (0s)
+=> [✓] App Bundled (26.4s)
+=> [✓] Site Data Downloaded (3.5s)
+=> [✓] Route Data Downloaded (0.7s)
+=> [✓] Route Data Exported (0s)
+=> Exporting HTML across 4 threads...
+=> [✓] HTML Exported (197s)

@@ -221,7 +221,7 @@ export default {
         component: 'src/components/Pages/Search', //TODO: update search page to be conscious of all languages
       },
       {
-        is404: true,
+        path: '404',
         component: 'src/components/Pages/404', //TODO: update 404 page to be conscious of all languages
       },
     ];

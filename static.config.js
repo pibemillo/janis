@@ -2,7 +2,8 @@ import { SUPPORTED_LANG_CODES } from 'js/i18n/constants';
 import { createGraphQLClientsByLang } from 'js/helpers/fetchData';
 
 // QUERIES
-import allServicePagesQuery from 'js/queries/allServicePagesQuery';
+import allServicePageIdsQuery from 'js/queries/allServicePageIdsQuery';
+import getServicePageQuery from 'js/queries/getServicePageQuery';
 import allProcessesQuery from 'js/queries/allProcessesQuery';
 import allTopicsQuery from 'js/queries/allTopicsQuery';
 import allThemesQuery from 'js/queries/allThemesQuery';
@@ -57,11 +58,24 @@ const makeChildPages = client => {
   ]);
 };
 
+const getServicePageIds = async client => {
+  const { allServicePages } = await client.request(allServicePageIdsQuery);
+  const allServicePageIds = allServicePages.edges.map(edge => edge.node.id);
+  return allServicePageIds;
+};
+
 const makeServicePages = async client => {
-  const { allServicePages: allServices } = await client.request(
-    allServicePagesQuery,
-  );
-  const services = cleanServices(allServices);
+  // const { allServicePages: allServices } = await client.request(
+  //   allServicePagesQuery,
+  // );
+  const allServicePageIds = await getServicePageIds(client);
+  let allServices = [];
+  for (const id of allServicePageIds) {
+    const service = await client.request(getServicePageQuery, { id: id });
+    allServices.push({ node: service.servicePage });
+  }
+
+  const services = cleanServices({ edges: allServices });
   const data = {
     path: '/services',
     component: 'src/components/Pages/Services',

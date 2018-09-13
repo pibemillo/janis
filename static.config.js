@@ -11,6 +11,9 @@ import allDepartmentsQuery from 'js/queries/allDepartmentsQuery';
 import topServicesQuery from 'js/queries/topServicesQuery';
 import all311Query from 'js/queries/all311Query';
 
+import * as BBPromise from 'bluebird';
+import retry from 'bluebird-retry';
+
 import {
   cleanLinks,
   cleanDepartments,
@@ -69,13 +72,20 @@ const makeServicePages = async client => {
   //   allServicePagesQuery,
   // );
   const allServicePageIds = await getServicePageIds(client);
-  let allServices = [];
-  for (const id of allServicePageIds) {
-    const service = await client.request(getServicePageQuery, { id: id });
-    allServices.push({ node: service.servicePage });
-  }
+  console.log(allServicePageIds);
 
-  const services = cleanServices({ edges: allServices });
+  const servicePromises = allServicePageIds.map(id =>
+    retry(client.request(getServicePageQuery, { id: id }), {
+      backoff: 2,
+      max_tries: 200,
+    }).reflect(),
+  );
+
+  const allServices = await BBPromise.all(servicePromises);
+
+  console.log(allServices);
+
+  const services = cleanServices(allServices);
   const data = {
     path: '/services',
     component: 'src/components/Pages/Services',

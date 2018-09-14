@@ -67,25 +67,21 @@ const getServicePageIds = async client => {
   return allServicePageIds;
 };
 
-const makeServicePages = async client => {
-  // const { allServicePages: allServices } = await client.request(
-  //   allServicePagesQuery,
-  // );
-  const allServicePageIds = await getServicePageIds(client);
-  console.log(allServicePageIds);
+const getServicePageNode = async (client, id) => {
+  const page = await client.request(getServicePageQuery, { id: id });
+  return { node: page.servicePage };
+};
 
-  const servicePromises = allServicePageIds.map(id =>
-    retry(client.request(getServicePageQuery, { id: id }), {
-      backoff: 2,
-      max_tries: 200,
-    }).reflect(),
+const makeServicePages = async client => {
+  const allServicePageIds = await getServicePageIds(client);
+
+  const allServices = await BBPromise.map(
+    allServicePageIds,
+    id => getServicePageNode(client, id),
+    { concurrency: 1 },
   );
 
-  const allServices = await BBPromise.all(servicePromises);
-
-  console.log(allServices);
-
-  const services = cleanServices(allServices);
+  const services = cleanServices({ edges: allServices });
   const data = {
     path: '/services',
     component: 'src/components/Pages/Services',

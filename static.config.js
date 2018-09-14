@@ -78,7 +78,7 @@ const makeServicePages = async client => {
   const allServices = await BBPromise.map(
     allServicePageIds,
     id => getServicePageNode(client, id),
-    { concurrency: 1 },
+    { concurrency: 5 },
   );
 
   const services = cleanServices({ edges: allServices });

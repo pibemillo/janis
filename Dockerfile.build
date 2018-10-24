@@ -22,9 +22,6 @@ ENV GOOGLE_ANALYTICS=${GOOGLE_ANALYTICS:-UA-110716917-2}
 ARG FEEDBACK_API
 ENV FEEDBACK_API=${FEEDBACK_API:-https://coa-test-form-api.herokuapp.com/process/}
 
-ARG CMS_API
-ENV CMS_API=${CMS_API:-https://joplin-staging.herokuapp.com/api/graphql}
-
 ARG CMS_MEDIA
 ENV CMS_MEDIA=${CMS_MEDIA:-https://joplin-austin-gov.s3.amazonaws.com/media}
 

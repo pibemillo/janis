@@ -1,5 +1,5 @@
 .coa-Footer {
-  background: $coa-color-purple-darkest;
+  // background: $coa-color-blue;
   color: $coa-color-white;
   font-family: $coa-font-sans;
   padding-bottom: $coa-spacing-large;
@@ -13,19 +13,45 @@
 }
 
 .coa-Footer__work-in-progress {
-  font-size: $coa-font-size-xsmall;
-  line-height: $coa-line-height-xsmall;
-  margin: 0 0 $coa-space-level5;
+  font-family: $coa-font-sans;
+  font-size: $coa-font-size-medium;
+  line-height: $coa-line-height-medium;
+  text-align: center;
+  color: $coa-color-white;
   a {
+    color: $coa-color-white;
+    &:visited {
+      color: $coa-color-white;
+    }
     svg {
-      fill: $coa-color-blue-darker;
+      fill: $coa-color-white;
       height: $coa-font-size-xsmall - .1rem;
       width: $coa-font-size-xsmall - .1rem;
       &:hover {
-        fill: $coa-color-blue-darkest;
+        fill: $coa-color-white;
+      }
+      path {
+        fill: $coa-color-white;
       }
     }
   }
+  h4 {
+    font-size: $coa-font-size-large;
+    line-height: $coa-line-height-large;
+    font-weight: $coa-font-regular;
+    letter-spacing: .25px;
+    margin-bottom: $coa-space-level7;
+  }
+  p {
+    font-size: $coa-font-size-md-small;
+    line-height: $coa-line-height-md-small
+  }
+}
+
+.coa-Footer__work-in-progress--background {
+  background: $coa-color-blue;
+  border-radius: $coa-section-border-radius;
+  padding: $coa-space-level7 0 $coa-space-level7 0;
 }
 
 .coa-Footer__icons {

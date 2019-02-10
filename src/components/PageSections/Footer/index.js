@@ -4,7 +4,6 @@ import { injectIntl } from 'react-intl';
 
 import { misc as i18n } from 'js/i18n/definitions';
 
-import FormFeedback from 'components/FormFeedback';
 import ExternalLink from 'components/ExternalLink';
 import WorkInProgress from 'components/WorkInProgress';
 
@@ -18,24 +17,26 @@ import { threeoneonePropTypes } from 'components/PageSections/ThreeOneOne/propty
 
 const Footer = ({ threeoneone, intl }) => (
   <footer>
-    <div className="wrapper wrapper--sm container-fluid">
-      <FormFeedback />
-    </div>
     <ThreeOneOne threeoneone={threeoneone} />
     <div className="coa-Footer">
       <div className="container-fluid wrapper">
         <div className="row">
-          <div className="col-xs-12 col-md-2">
+          {/* <div className="col-xs-12 col-md-2">
             <div className="coa-Footer__city-seal-wrapper">
               <img src={citySealImg} alt={intl.formatMessage(i18n.citySeal)} />
             </div>
+          </div> */}
           </div>
-          <div className="col-xs-12 col-md-4">
-            <p className="coa-Footer__work-in-progress">
+      </div>
+    </div>
+    <div className="coa-Footer__work-in-progress">
+      <div className="container-fluid wrapper">
+        <div className="coa-Footer__work-in-progress--background row">
+          <div className="col-md-6 col-md-offset-3">
+            <div className="">
               <WorkInProgress />
-            </p>
-          </div>
-          <div className="col-xs-12 col-md-3 col-md-offset-3">
+            </div>
+          {/* <div className="col-xs-12 col-md-3 col-md-offset-3">
             <div className="coa-Footer__icons">
               <ExternalLink to="https://twitter.com/austintexasgov" noIcon={true}>
                 <TwitterSVG />
@@ -50,6 +51,7 @@ const Footer = ({ threeoneone, intl }) => (
                 <GithubSVG />
               </ExternalLink>
             </div>
+          </div> */}
           </div>
         </div>
       </div>

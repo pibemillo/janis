@@ -1,23 +1,27 @@
+.coa-Menu__container {
+  order: 6;
+}
+
 .coa-Menu {
-  background-color: $coa-color-white;
+  // background-color: $coa-color-white;
   bottom: 0;
   left: -100vw;
   overflow-y: auto;
   position: fixed;
   transition: left 0.5s;
-  top: $coa-languageselectbar-height;
+  // top: $coa-languageselectbar-height;
   width: 100vw;
   z-index: 2;
   @include media($coa-large-screen) {
-    background: none;
-    bottom: auto;
-    left: auto;
-    margin: $coa-space-level5 auto 0;
+    // background: none;
+    // bottom: auto;
+    left: 0;
+    margin: 0;
     overflow-y: visible;
     position: relative;
-    top: auto;
+    // top: auto;
     width: 100%;
-    z-index: 2;
+    // z-index: 2;
   }
 }
 

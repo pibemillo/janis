@@ -60,47 +60,49 @@ class Menu extends Component {
     const { openSubmenuId } = this.state;
 
     return (
-      <div className="container-fluid wrapper">
-        <nav
-          className={classNames('coa-Menu', { 'coa-Menu--open': isMenuOpen })}
-          role="navigation"
-        >
-          <button
-            className="coa-Menu__close-btn d-lg-none"
-            onClick={this.closeAllMenus}
-            ref="closeTrigger"
-            tabIndex="0"
+      <div className="coa-Menu__container">
+        <div>
+          <nav
+            className={classNames('coa-Menu', { 'coa-Menu--open': isMenuOpen })}
+            role="navigation"
           >
-            <CloseSVG />
-          </button>
-          <ul className="coa-Menu__list">
-            <HomeMobileMenuItem handleCloseAllMenus={this.closeAllMenus} />
-            <AirportMobileMenuItem />
-            <ThreeOneOneMobileMenuItem />
-            {navigation.map((theme, i) => (
-              <MenuItem
-                key={i}
-                id={i}
-                theme={theme}
-                isSubmenuOpen={this.isSubmenuOpen(i)}
-                handleCloseAllMenus={this.closeAllMenus}
-                handleSubmenuToggle={this.toggleSubmenu}
-              />
-            ))}
-            <PrivacyPolicyMenuItem handleCloseAllMenus={this.closeAllMenus} />
-            <MobileFooter />
-          </ul>
-        </nav>
-        {/*
+            <button
+              className="coa-Menu__close-btn d-lg-none"
+              onClick={this.closeAllMenus}
+              ref="closeTrigger"
+              tabIndex="0"
+            >
+              <CloseSVG />
+            </button>
+            <ul className="coa-Menu__list">
+              <HomeMobileMenuItem handleCloseAllMenus={this.closeAllMenus} />
+              <AirportMobileMenuItem />
+              <ThreeOneOneMobileMenuItem />
+              {navigation.map((theme, i) => (
+                <MenuItem
+                  key={i}
+                  id={i}
+                  theme={theme}
+                  isSubmenuOpen={this.isSubmenuOpen(i)}
+                  handleCloseAllMenus={this.closeAllMenus}
+                  handleSubmenuToggle={this.toggleSubmenu}
+                />
+              ))}
+              <PrivacyPolicyMenuItem handleCloseAllMenus={this.closeAllMenus} />
+              <MobileFooter />
+            </ul>
+          </nav>
+          {/*
           this provides a full page click target area behind the nav menu
           which, when clicked, will close the submenu
         */
-        openSubmenuId !== null && (
-          <div
-            className="coa-Menu__close-submenu-click-target"
-            onClick={() => this.setState({ openSubmenuId: null })}
-          />
-        )}
+          openSubmenuId !== null && (
+            <div
+              className="coa-Menu__close-submenu-click-target"
+              onClick={() => this.setState({ openSubmenuId: null })}
+            />
+          )}
+        </div>
       </div>
     );
   }

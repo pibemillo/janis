@@ -1,13 +1,18 @@
 .coa-LanguageSelectBar {
-  background-color: $coa-color-purple-darkest;
-  color: $coa-color-white;
+  // background-color: $coa-color-purple-darkest;
+  // color: $coa-color-blue-lightest;
+  order: 2;
   font-family: $coa-font-sans;
+  font-weight: $coa-font-regular;
+  @include media($coa-large-screen) {
+    order: 3;
+  }
 }
 
 .coa-LanguageSelectBar__list {
   color: $coa-color-white;
   list-style: none;
-  height: $coa-languageselectbar-height;
+  // height: $coa-languageselectbar-height;
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -25,7 +30,7 @@
 }
 
 .coa-LanguageSelectBar__item {
-  color: $coa-color-white;
+  color: $coa-color-blue-lightest;
   cursor: pointer;
   display: inline-block;
   font-size: $coa-font-size-xsmall;
@@ -42,7 +47,8 @@
     color: $coa-color-white;
   }
   &.coa-LanguageSelectBar__item--active {
-    background-color: $color-gray-lighter;
-    color: $coa-color-purple-dark;
+    // background-color: $color-gray-lighter;
+    color: $coa-color-white;
+    font-weight: $coa-font-semibold;
   }
 }

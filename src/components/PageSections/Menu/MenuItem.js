@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import I18nNavLink from 'components/I18n/I18nNavLink';
 import PlusSVG from 'components/SVGs/Plus';
 import MinusSVG from 'components/SVGs/Minus';
-import ChevronDownSVG from 'components/SVGs/ChevronDown';
 
 import Submenu from './Submenu';
 import { themePropTypes } from './proptypes';
@@ -37,9 +36,6 @@ const MenuItem = ({
         ) : (
           <PlusSVG title={`open ${theme.text} section`} />
         )}
-      </div>
-      <div className="d-none d-lg-inline">
-        <ChevronDownSVG />
       </div>
     </div>
     {!!theme.topics.length && (

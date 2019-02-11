@@ -1,25 +1,25 @@
 .coa-MenuItem {
   cursor: pointer;
-  border-bottom: 1px solid $coa-color-gray;
+  // border-bottom: 1px solid $coa-color-gray;
   font-size: $coa-font-size-small;
   font-family: $coa-font-sans;
   line-height: $coa-line-height-small;
   padding: $coa-space-level2 $coa-space-level3;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   @include media($coa-large-screen) {
     border: 1px solid transparent;
     border-bottom: none;
   }
-  svg {
-    height: $coa-font-size-small - .1rem;
-    width: $coa-font-size-small - .1rem;
-    margin-left: $coa-spacing-xsmall;
-    transition-duration: .3s;
-    vertical-align: middle;
-    @include media($coa-large-screen) {
-      vertical-align: baseline;
-    }
-  }
+  // svg {
+  //   height: $coa-font-size-small - 0.1rem;
+  //   width: $coa-font-size-small - 0.1rem;
+  //   margin-left: $coa-spacing-xsmall;
+  //   transition-duration: 0.3s;
+  //   vertical-align: middle;
+  //   @include media($coa-large-screen) {
+  //     vertical-align: baseline;
+  //   }
+  // }
 }
 
 .coa-rtl {
@@ -52,8 +52,8 @@
   font-size: $coa-font-size-xsmall;
   white-space: nowrap;
   svg {
-    height: $coa-font-size-xsmall - .1rem; //based on parent element font-size
-    width: $coa-font-size-xsmall - .1rem; //based on parent element font-size
+    height: $coa-font-size-xsmall - 0.1rem; //based on parent element font-size
+    width: $coa-font-size-xsmall - 0.1rem; //based on parent element font-size
   }
 }
 
@@ -72,12 +72,16 @@
     height: 100%;
     padding: $coa-space-level4 $coa-space-level2 $coa-space-level3;
   }
+
+  &:first-child {
+    padding-left: 0;
+  }
 }
 
 .coa-MenuItem__text {
   @include media($coa-large-screen) {
-    border-bottom: 3px solid transparent;
-    font-weight: $coa-font-bold;
+    // border-bottom: 3px solid transparent;
+    font-weight: $coa-font-regular;
     margin-bottom: 0;
     text-align: center;
   }

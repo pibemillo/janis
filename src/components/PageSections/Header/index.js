@@ -43,7 +43,50 @@ class Header extends Component {
         })}
         role="banner"
       >
-        <LanguageSelectBar path={path} />
+        <div className="container-fluid wrapper">
+          <div className="row">
+            <div className="col-xs-12">
+              <div className="coa-Header__container">
+                <div className="coa-Header__external-links">
+                  <ExternalLink to="http://www.austintexas.gov/airport">
+                    {intl.formatMessage(i18n1.airport)}
+                  </ExternalLink>
+                  <ExternalLink to="http://311.austintexas.gov/">
+                    AUS:311
+                  </ExternalLink>
+                </div>
+                <div className="coa-Header__menu-container">
+                  <button
+                    onClick={this.openMenu}
+                    tabIndex="0"
+                    className="coa-Header__menu-toggle d-lg-none"
+                    ref="menu"
+                  >
+                    {intl.formatMessage(i18n2.menu)}
+                  </button>
+                </div>
+                <div className="coa-Header__logo-container">
+                  <I18nLink className="coa-Header__logo" to="/">
+                    City of Austin
+                    <span className="coa-Header__alpha">ALPHA</span>
+                  </I18nLink>
+                </div>
+                <div className="coa-Header__search-container">Search</div>
+                <LanguageSelectBar path={path} />
+                <div class="coa-Header__separator">
+                  <hr />
+                </div>
+                <Menu
+                  isMenuOpen={this.state.menuIsOpen}
+                  closeMenu={this.closeMenu}
+                  navigation={navigation}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <LanguageSelectBar path={path} />
         <div className="container-fluid wrapper">
           <div className="coa-Header__controls">
             <div className="coa-Header__left-controls">
@@ -57,7 +100,7 @@ class Header extends Component {
               </button>
               <span className="coa-text-spacer--vertical d-lg-none" />
               <I18nLink className="coa-Header__logo" to="/">
-                ALPHA.AUSTIN.GOV
+                City of Austin
               </I18nLink>
             </div>
             <div className="coa-Header__right-controls">
@@ -73,7 +116,7 @@ class Header extends Component {
           isMenuOpen={this.state.menuIsOpen}
           closeMenu={this.closeMenu}
           navigation={navigation}
-        />
+        /> */}
       </header>
     );
   }

@@ -1,7 +1,8 @@
 .coa-Footer {
-  // background: $coa-color-blue;
-  color: $coa-color-white;
+  background: $coa-color-grey;
+  // color: $coa-color-white;
   font-family: $coa-font-sans;
+  padding-top: $coa-spacing-large;
   padding-bottom: $coa-spacing-large;
 }
 
@@ -25,8 +26,8 @@
     }
     svg {
       fill: $coa-color-white;
-      height: $coa-font-size-xsmall - .1rem;
-      width: $coa-font-size-xsmall - .1rem;
+      height: $coa-font-size-xsmall - 0.1rem;
+      width: $coa-font-size-xsmall - 0.1rem;
       &:hover {
         fill: $coa-color-white;
       }
@@ -39,12 +40,12 @@
     font-size: $coa-font-size-large;
     line-height: $coa-line-height-large;
     font-weight: $coa-font-regular;
-    letter-spacing: .25px;
+    letter-spacing: 0.25px;
     margin-bottom: $coa-space-level7;
   }
   p {
     font-size: $coa-font-size-md-small;
-    line-height: $coa-line-height-md-small
+    line-height: $coa-line-height-md-small;
   }
 }
 
@@ -54,13 +55,126 @@
   padding: $coa-space-level7 0 $coa-space-level7 0;
 }
 
-.coa-Footer__icons {
+// .coa-Footer__icons {
+//   a {
+//     margin-right: $coa-space-level4;
+//   }
+//   svg {
+//     path {
+//       fill: $coa-color-white;
+//     }
+//     &:hover {
+//       path {
+//         fill: $coa-color-blue;
+//       }
+//     }
+//   }
+//   @include media($coa-medium-screen) {
+//     text-align: right;
+//   }
+// }
+
+.coa-FooterNav {
+  padding-top: $coa-spacing-medium;
+  padding-bottom: $coa-spacing-medium;
+  margin-bottom: $coa-spacing-large;
+}
+
+.coa-FooterNav__title {
+  font-size: $coa-font-size-small;
+  line-height: $coa-line-height-small;
+  padding-top: $coa-space-level2;
+  padding-bottom: $coa-space-level2;
+  margin-bottom: $coa-space-level2;
+  border-bottom: 1px solid $coa-color-grey-lightest;
+
+  a {
+    text-decoration: none;
+    color: $coa-color-blue;
+    display: block;
+
+    &:after {
+      content: 'v';
+      float: right;
+    }
+  }
+
+  @include media($coa-medium-screen) {
+    padding-top: 0;
+    padding-bottom: 0;
+    border: none;
+
+    a {
+      color: $coa-color-black;
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+.coa-FooterNav__list {
+  display: none;
+  list-style-type: none;
+  @include media($coa-medium-screen) {
+    display: block;
+  }
+}
+
+.coa-FooterNav__list--open {
+  display: block;
+}
+
+.coa-FooterNav__list--closed {
+  @include media($coa-medium-screen) {
+    display: block;
+  }
+}
+
+.coa-FooterNav__item {
+  font-size: $coa-font-size-xsmall;
+  line-height: $coa-line-height-xsmall;
+  margin-bottom: $coa-space-level1;
+}
+
+.coa-FooterNav__link {
+  text-decoration: none;
+  color: $coa-color-grey-light;
+  &:visited {
+    color: $coa-color-grey-light;
+  }
+}
+
+.coa-FooterSubNav {
+  padding-top: $coa-spacing-medium;
+  padding-bottom: $coa-spacing-medium;
+  display: flex;
+  flex-flow: column;
+  @include media($coa-large-screen) {
+    flex-flow: row;
+  }
+}
+
+.coa-FooterSubNav__seal {
+  flex: 1 0 100%;
+  text-align: center;
+  margin-bottom: $coa-spacing-medium;
+  @include media($coa-large-screen) {
+    flex: 1 1 10%;
+    margin-bottom: 0;
+  }
+}
+
+.coa-FooterSubNav__icons {
+  display: flex;
+  flex: 1 0 100%;
+  justify-content: center;
   a {
     margin-right: $coa-space-level4;
   }
   svg {
     path {
-      fill: $coa-color-white;
+      fill: $coa-color-black;
     }
     &:hover {
       path {
@@ -69,6 +183,54 @@
     }
   }
   @include media($coa-medium-screen) {
-    text-align: right;
+    flex-flow: row;
+    align-items: center;
+    flex: 1 10%;
+  }
+}
+
+.coa-FooterSubNav__list {
+  display: inline;
+  text-align: center;
+  // flex: 1 0 100%;
+  list-style: none;
+  margin-bottom: $coa-spacing-medium;
+  padding-left: $coa-spacing-medium;
+  padding-right: $coa-spacing-medium;
+  color: $coa-color-grey-lighter;
+  @include media($coa-large-screen) {
+    display: flex;
+    flex-flow: row;
+    margin-bottom: 0;
+    align-items: center;
+    flex: 1 80%;
+    justify-content: center;
+  }
+}
+
+.coa-FooterSubNav__item {
+  font-size: $coa-font-size-small;
+  line-height: $coa-line-height-small;
+  display: inline-block;
+  &:after {
+    content: '|';
+    color: $coa-color-grey-lighter;
+  }
+  &:last-child {
+    &:after {
+      visibility: hidden;
+    }
+  }
+}
+
+.coa-FooterSubNav__link {
+  font-size: $coa-font-size-small;
+  line-height: $coa-line-height-small;
+  color: $coa-color-grey-lighter;
+  text-decoration: none;
+  padding-right: $coa-spacing-small;
+  padding-left: $coa-spacing-small;
+  &:visited {
+    color: $coa-color-grey-lighter;
   }
 }

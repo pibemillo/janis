@@ -5,6 +5,8 @@ import { injectIntl } from 'react-intl';
 import navigationData from 'stories/static_data/navigationData';
 import threeoneoneData from 'stories/static_data/threeoneoneData';
 
+import footerData from 'stories/static_data/footerData';
+
 import Header from 'components/PageSections/Header';
 import Footer from 'components/PageSections/Footer';
 
@@ -13,7 +15,7 @@ const HeaderWrapper = injectIntl(({ intl }) => (
 ));
 
 const FooterWrapper = injectIntl(({ intl }) => (
-  <Footer threeoneone={threeoneoneData[intl.locale]} />
+  <Footer footerData={footerData} />
 ));
 
 storiesOf('Page Sections', module)

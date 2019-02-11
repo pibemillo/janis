@@ -4,29 +4,18 @@ import { injectIntl } from 'react-intl';
 
 import { misc as i18n } from 'js/i18n/definitions';
 
-import ExternalLink from 'components/ExternalLink';
 import WorkInProgress from 'components/WorkInProgress';
 
-import TwitterSVG from 'components/SVGs/Twitter';
-import FacebookSVG from 'components/SVGs/Facebook';
-import GithubSVG from 'components/SVGs/Github';
-import citySealImg from 'images/coa_seal_white.png';
+import FooterNav from './FooterNav';
+import FooterSubNav from './FooterSubNav';
 
-import ThreeOneOne from 'components/PageSections/ThreeOneOne';
-import { threeoneonePropTypes } from 'components/PageSections/ThreeOneOne/proptypes';
-
-const Footer = ({ threeoneone, intl }) => (
-  <footer>
-    <ThreeOneOne threeoneone={threeoneone} />
-    <div className="coa-Footer">
+const Footer = ({ footerData, intl }) => (
+  <footer className="coa-Footer">
+    <FooterNav footerData={footerData} />
+    <FooterSubNav />
+    <div>
       <div className="container-fluid wrapper">
-        <div className="row">
-          {/* <div className="col-xs-12 col-md-2">
-            <div className="coa-Footer__city-seal-wrapper">
-              <img src={citySealImg} alt={intl.formatMessage(i18n.citySeal)} />
-            </div>
-          </div> */}
-          </div>
+        <div className="row" />
       </div>
     </div>
     <div className="coa-Footer__work-in-progress">
@@ -36,31 +25,11 @@ const Footer = ({ threeoneone, intl }) => (
             <div className="">
               <WorkInProgress />
             </div>
-          {/* <div className="col-xs-12 col-md-3 col-md-offset-3">
-            <div className="coa-Footer__icons">
-              <ExternalLink to="https://twitter.com/austintexasgov" noIcon={true}>
-                <TwitterSVG />
-              </ExternalLink>
-              <ExternalLink
-                to="https://www.facebook.com/austintexasgov"
-                noIcon={true}
-              >
-                <FacebookSVG />
-              </ExternalLink>
-              <ExternalLink to="https://github.com/cityofaustin" noIcon={true}>
-                <GithubSVG />
-              </ExternalLink>
-            </div>
-          </div> */}
           </div>
         </div>
       </div>
     </div>
   </footer>
 );
-
-Footer.propTypes = {
-  threeoneone: threeoneonePropTypes.isRequired,
-};
 
 export default injectIntl(Footer);
